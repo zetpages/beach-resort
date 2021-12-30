@@ -1,11 +1,18 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Hero from "../components/Hero";
+import Banner from "../components/Banner";
+import { Link } from "react-router-dom";
 
 export default function About() {
     return (
         <>
-            <Navbar />
-            <h1 className='mt-4'>Страница о компании</h1>
+            <Hero hero="roomsHero">
+                <Banner title="our rooms">
+                    <Link to="/" className="btn-primary">
+                        return home
+                    </Link>
+                </Banner>
+            </Hero>
         </>
     )
 }

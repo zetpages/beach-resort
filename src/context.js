@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import items from "./data";
 import Client from "./Contentful";
-// Client.getEntries({
-//   content_type: "seasonEstate"
-// }).then(response => console.log(response.items));
-
 const RoomContext = React.createContext();
 
 export default class RoomProvider extends Component {
@@ -28,9 +23,9 @@ export default class RoomProvider extends Component {
   getData = async () => {
     try {
       let response = await Client.getEntries({
-        content_type: "seasonEstate",
+        content_type: "seasonEstate"
         // order: "sys.createdAt"
-        order: "-fields.price"
+        // order: "-fields.price"
       });
       let rooms = this.formatData(response.items);
 
@@ -55,22 +50,8 @@ export default class RoomProvider extends Component {
 
   componentDidMount() {
     this.getData();
-    // let rooms = this.formatData(items);
-    // let featuredRooms = rooms.filter(room => room.featured === true);
-    // //
-    // let maxPrice = Math.max(...rooms.map(item => item.price));
-    // let maxSize = Math.max(...rooms.map(item => item.size));
-    // this.setState({
-    //   rooms,
-    //   featuredRooms,
-    //   sortedRooms: rooms,
-    //   loading: false,
-    //   //
-    //   price: maxPrice,
-    //   maxPrice,
-    //   maxSize
-    // });
   }
+
 
   formatData(items) {
     let tempItems = items.map(item => {
@@ -90,12 +71,12 @@ export default class RoomProvider extends Component {
   handleChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
+    const address = target.address;
     // console.log(name, value);
 
     this.setState(
       {
-        [name]: value
+        [address]: value
       },
       this.filterRooms
     );

@@ -20,8 +20,8 @@ const RoomsFilter = ({ rooms }) => {
     maxPrice,
     minSize,
     maxSize,
-    breakfast,
-    pets
+    playground,
+    parking
   } = context;
 
   // get unique types
@@ -123,7 +123,7 @@ const RoomsFilter = ({ rooms }) => {
               type="checkbox"
               name="breakfast"
               id="breakfast"
-              checked={breakfast}
+              checked={playground}
               onChange={handleChange}
             />
             <label htmlFor="breakfast">Фичи</label>
@@ -132,7 +132,7 @@ const RoomsFilter = ({ rooms }) => {
             <input
               type="checkbox"
               name="pets"
-              checked={pets}
+              checked={parking}
               onChange={handleChange}
             />
             <label htmlFor="breakfast">Мичи</label>
